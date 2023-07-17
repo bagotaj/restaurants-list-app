@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home mx-auto">
         <h1>Restaurants</h1>
         <div v-if="$store.state.restaurants.length" class="card-wrapper">
             <CardView :restaurant="restaurant" v-for="restaurant in $store.state.restaurants" :key="restaurant.name" />
@@ -27,6 +27,8 @@ export default {
 
 <style lang="scss">
     .home {
+        max-width: 1056px;
+
         h1 {
             text-align: center;
             margin-bottom: 25px;
