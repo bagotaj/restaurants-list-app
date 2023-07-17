@@ -1,3 +1,7 @@
+$primary-color: #2c3e50;
+$secondary-color: grey;
+$active-link-color: #42b983;
+
 $border-radius: 1rem !important;
-$box-shadow-card: 14px 14px grey;
-$box-shadow-card-button: 6px 6px grey;
+$box-shadow-card: 14px 14px $secondary-color;
+$box-shadow-card-button: 6px 6px $secondary-color;
