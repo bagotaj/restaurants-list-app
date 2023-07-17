@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <h1>Restaurants</h1>
-        <div v-if="$store.state.restaurants.length" class="card-deck">
+        <div v-if="$store.state.restaurants.length" class="card-wrapper">
             <CardView :restaurant="restaurant" v-for="restaurant in $store.state.restaurants" :key="restaurant.name" />
         </div>
         <div v-else>Not found restaurant!</div>
@@ -28,8 +28,14 @@ export default {
 <style lang="scss">
     .home {
         h1 {
-          text-align: center;
-          margin-bottom: 25px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .card-wrapper {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
         }
     }
 </style>

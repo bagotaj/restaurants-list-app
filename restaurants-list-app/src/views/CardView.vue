@@ -1,9 +1,11 @@
 <template>
-    <div class="card border-0">
-        <img v-if="restaurant.banner" :src="restaurant.banner" class="card-img img-height" alt="...">
-        <div v-else class="img-height card-img"></div>
-        <div class="card-img-overlay d-flex">
-            <img v-if="restaurant.logo" :src="restaurant.logo" class="rounded-circle logo" alt="...">
+    <div class="card border-0 mb-5">
+        <div class="card-img">
+            <img v-if="restaurant.banner" :src="restaurant.banner" class="card-img" alt="...">
+            <div v-else class="card-img"></div>
+            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                <img v-if="restaurant.logo" :src="restaurant.logo" class="rounded-circle logo shadow" alt="...">
+            </div>
         </div>
         <div class="card-body">
             <h5 class="card-title">{{ restaurant.name }}</h5>
@@ -29,7 +31,8 @@ export default {
         border-radius: $border-radius;
         box-shadow: $box-shadow-card;
 
-        .img-height {
+        .card-img, .card-img-overlay {
+            width: 480px;
             height: 288px;
             background-color: lightgray;
             border-radius: $border-radius;
