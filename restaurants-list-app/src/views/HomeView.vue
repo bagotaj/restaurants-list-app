@@ -1,10 +1,8 @@
 <template>
     <div class="home">
         <h1>Restaurants</h1>
-        <div v-if="$store.state.restaurants.length" class="container">
-            <div v-for="restaurant in $store.state.restaurants" :key="restaurant.name" class="">
-                <CardView :restaurant="restaurant" />
-            </div>
+        <div v-if="$store.state.restaurants.length" class="card-deck">
+            <CardView :restaurant="restaurant" v-for="restaurant in $store.state.restaurants" :key="restaurant.name" />
         </div>
         <div v-else>Not found restaurant!</div>
     </div>
@@ -28,5 +26,10 @@ export default {
 </script>
 
 <style lang="scss">
-  
+    .home {
+        h1 {
+          text-align: center;
+          margin-bottom: 25px;
+        }
+    }
 </style>
