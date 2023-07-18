@@ -4,16 +4,33 @@
             <img v-if="restaurant.banner" :src="restaurant.banner" class="card-img" alt="...">
             <div v-else class="card-img card-no-img"></div>
             <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                <img v-if="restaurant.logo" :src="restaurant.logo" class="rounded-circle logo" alt="...">
+                <div>
+                    <img v-if="restaurant.logo" :src="restaurant.logo" class="rounded-circle logo" alt="...">
+                    <div v-else class="rounded-circle logo card-no-img"></div>
+                </div>
+                <div class="d-flex">
+                    <div class="d-flex justify-content-between align-items-center rounded-pill btn-shadow ratings">
+                        <font-awesome-icon :icon="['fas', 'star']" class="rating-color" />
+                        <font-awesome-icon :icon="['far', 'star']" />
+                        <font-awesome-icon :icon="['far', 'star']" />
+                        <font-awesome-icon :icon="['far', 'star']" />
+                        <font-awesome-icon :icon="['far', 'star']" />
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center rounded-pill btn-shadow price">
+                        $ {{ restaurant.price }}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ restaurant.name }}</h5>
-            <p class="card-text text-truncate">{{ restaurant.cousines }}</p>
-            <p class="card-text">{{ restaurant.phone }}</p>
-            <p class="card-text">{{ restaurant.address }}</p>
+            <div>
+                <h5 class="card-title">{{ restaurant.name }}</h5>
+                <p class="card-text text-truncate">{{ restaurant.cousines }}</p>
+                <p class="card-text"><font-awesome-icon :icon="['fas', 'phone']" />{{ restaurant.phone }}</p>
+                <p class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" />{{ restaurant.address }}</p>
+            </div>
             <div class="d-flex justify-content-end">
-                <a href="#" class="btn btn-success btn-shadow">Order</a>
+                <a href="#" class="btn btn-success rounded-pill btn-shadow">Order</a>
             </div>
         </div>
     </div>
@@ -56,5 +73,14 @@ export default {
 
     .shadow {
         color: $secondary-color;
+    }
+
+    .ratings, .price {
+        padding: 0.5rem;
+        background-color: $primary-bg-color;
+    }
+
+    .rating-color{
+        color:#fbc634 !important;
     }
 </style>
