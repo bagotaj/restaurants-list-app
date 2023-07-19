@@ -8,8 +8,8 @@
                     <img v-if="restaurant.logo" :src="restaurant.logo" class="rounded-circle logo" alt="...">
                     <div v-else class="rounded-circle logo card-no-img"></div>
                 </div>
-                <div class="d-flex">
-                    <div class="d-flex justify-content-between align-items-center rounded-pill btn-shadow ratings">
+                <div class="d-flex position-absolute bottom-0 end-0 mb-3 me-3">
+                    <div class="d-flex justify-content-between align-items-center rounded-pill btn-shadow ratings me-3">
                         <font-awesome-icon :icon="['fas', 'star']" class="rating-color" />
                         <font-awesome-icon :icon="['far', 'star']" />
                         <font-awesome-icon :icon="['far', 'star']" />
@@ -28,7 +28,7 @@
             <p v-if="restaurant.phone" class="card-text"><font-awesome-icon :icon="['fas', 'phone']" class="me-2" />{{ restaurant.phone }}</p>
             <p v-if="restaurant.address" class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" class="me-2" />{{ restaurant.address }}</p>
             <div class="d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-3">
-                <a href="#" class="btn btn-success rounded-pill btn-shadow">Order</a>
+                <a href="#" class="btn btn-success rounded-pill btn-shadow" @click="warningWindow">Order</a>
             </div>
         </div>
     </div>
@@ -37,6 +37,11 @@
 <script>
 export default {
     props: ['restaurant'],
+    methods: {
+        warningWindow() {
+            alert('Thank you for your order!')
+        }
+    },
 }
 </script>
 
