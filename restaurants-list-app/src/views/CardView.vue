@@ -22,14 +22,12 @@
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            <div>
-                <h5 class="card-title">{{ restaurant.name }}</h5>
-                <p class="card-text text-truncate">{{ restaurant.cousines }}</p>
-                <p class="card-text"><font-awesome-icon :icon="['fas', 'phone']" class="me-2" />{{ restaurant.phone }}</p>
-                <p class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" class="me-2" />{{ restaurant.address }}</p>
-            </div>
-            <div class="d-flex justify-content-end">
+        <div class="card-body position-relative">
+            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <p v-if="restaurant.cousines" class="card-text text-truncate text-truncate-fix-width">{{ restaurant.cousines.replaceAll(',',', ').replaceAll('&Amp;','&') }}</p>
+            <p v-if="restaurant.phone" class="card-text"><font-awesome-icon :icon="['fas', 'phone']" class="me-2" />{{ restaurant.phone }}</p>
+            <p v-if="restaurant.address" class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" class="me-2" />{{ restaurant.address }}</p>
+            <div class="d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-3">
                 <a href="#" class="btn btn-success rounded-pill btn-shadow">Order</a>
             </div>
         </div>
@@ -67,6 +65,10 @@ export default {
         }
     }
 
+    h5 {
+        margin-bottom: 1rem !important;
+    }
+
     .btn-shadow {
         box-shadow: $box-shadow-card-button;
     }
@@ -84,7 +86,12 @@ export default {
         color:#fbc634 !important;
     }
 
-    @media (min-width: 425px) {
+    .text-truncate-fix-width {
+        display: inline-block;
+        max-width: 250px;
+    }
+
+    @media (max-width: 425px) {
         .card {
             width: 90%;
 
