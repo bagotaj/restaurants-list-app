@@ -26,8 +26,8 @@
             <div>
                 <h5 class="card-title">{{ restaurant.name }}</h5>
                 <p class="card-text text-truncate">{{ restaurant.cousines }}</p>
-                <p class="card-text"><font-awesome-icon :icon="['fas', 'phone']" />{{ restaurant.phone }}</p>
-                <p class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" />{{ restaurant.address }}</p>
+                <p class="card-text"><font-awesome-icon :icon="['fas', 'phone']" class="me-2" />{{ restaurant.phone }}</p>
+                <p class="card-text"><font-awesome-icon :icon="['fas', 'location-dot']" class="me-2" />{{ restaurant.address }}</p>
             </div>
             <div class="d-flex justify-content-end">
                 <a href="#" class="btn btn-success rounded-pill btn-shadow">Order</a>
@@ -82,5 +82,15 @@ export default {
 
     .rating-color{
         color:#fbc634 !important;
+    }
+
+    @media (min-width: 425px) {
+        .card {
+            width: 90%;
+
+            .card-img, .card-img-overlay {
+                width: 100%;
+            }
+        }
     }
 </style>
